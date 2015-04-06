@@ -8,7 +8,7 @@
 # Fix YUM, fixing some of the most common cPanel error on a new server
 # Written for use on GoDaddy VPH3 (Vertigo) servers
 
-#Incase someone has removed the 32-bit version of zlib, here is how you can get it back
+#In case someone has removed the 32-bit version of zlib, here is how you can get it back
 zlib=$(rpm -qa | grep zlib | grep i686)
 if [[ -z $zlib ]]
 	then wget http://mirror.centos.org/centos/6/os/i386/Packages/zlib-1.2.3-29.el6.i686.rpm && rpm -i zlib-1.2.3-29.el6.i686.rpm
@@ -28,7 +28,7 @@ if [[ -z "$ea" ]]
 fi
 
 # Update our repositories to make sure we are listen to all channels
-updaterepo=$(sed 's/#baseurl/baseurl/g' -i /etc/yum.repos.d/CentOS-Base.repo; sed -r 's/gpgcheck=1/gpgcheck=1\nenabled=1/g' -i /etc/yum.repos.d/CentOS-Base.repo; sed '/enabled=0/d' -i /etc/yum.repos.d/CentOS-Base.repo; sed -r 's/[main]/[main]\nskip_broken=1/w' -i /etc/yum.conf)
+updaterepo=$(sed 's/#baseurl/baseurl/g' -i /etc/yum.repos.d/CentOS-Base.repo; sed -r 's/gpgcheck=1/gpgcheck=1\nenabled=1/g' -i /etc/yum.repos.d/CentOS-Base.repo; sed '/enabled=0/d' -i /etc/yum.repos.d/CentOS-Base.repo; echo "skip_broken=1" >> /etc/yum.conf;
 
 # Flush the cache, we want to make sure we have the latest package listen
 flushcache=$(yum clean all)
