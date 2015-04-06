@@ -37,7 +37,7 @@ flushcache=$(yum clean all)
 yumupdate=$(yum history | grep -i update | grep -v conf | grep `date +%Y` | awk 'NR==1{print $6; exit}')
 
 # Update the system
-updatenow=$(yum update --skip-broken)
+updatenow=$(yum update)
 
 # Determine if the variable has anything stored in it.
 if [[ ! -z $yumupdate ]]
