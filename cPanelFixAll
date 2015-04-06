@@ -3,7 +3,7 @@
 # Date: March 2015
 # Author: Alexander S. (info@misteralexander.com)
 #
-# https://github.com/misteralexander/cPanelFixAll
+# https://github.com/misteralexander/bash
 #
 # Fix YUM, fixing some of the most common cPanel error on a new server
 # Written for use on GoDaddy VPH3 (Vertigo) servers
