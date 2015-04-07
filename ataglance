@@ -5,7 +5,7 @@
 #
 # https://github.com/misteralexander/bash
 #
-# Query running services, ask a few good questions and provide that information in a quick "At-A-Glance" heads-up
+# Query running services, ask the system a few good questions and provide that information in a quick "At-A-Glance" heads-up
 #
 # Written for use on GoDaddy VPH2/VPH3 Linux servers
 
