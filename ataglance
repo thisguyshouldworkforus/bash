@@ -12,19 +12,19 @@
 echo -e "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n"
 read type
     case $type in
-        "1")
+        "1" )
             echo "cPanel Stuff"
         ;;
-        "2")
+        "2" )
             echo "Plesk Stuff"
         ;;
-        "3")
+        "3" )
             echo "Ubuntu Stuff"
         ;;
-        "4")
+        "4" )
             echo "No Panel"
         ;;
-        "5|[6-999]|[A-Z][a-z]")
-            echo "Invalid Input"; exit 1
+        * )
+            echo "Invalid Input"
         ;;
     esac
