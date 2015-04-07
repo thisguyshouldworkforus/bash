@@ -9,7 +9,7 @@
 #
 # Written for use on GoDaddy VPH2/VPH3 Linux servers
 
-echo -e "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n"
+echo -en "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n\nEnter Selection: "
 read type
     case $type in
         "1" )
