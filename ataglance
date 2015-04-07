@@ -28,5 +28,6 @@ while true; do
       "*")
         echo "Invalid Input";
         exit 1;
+      ;;
   esac
 done;
