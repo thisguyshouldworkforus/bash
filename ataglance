@@ -24,7 +24,7 @@ read type
         "4")
             echo "No Panel"
         ;;
-        "5|[6-999]|[A-Z][a-z]"
+        "5|[6-999]|[A-Z][a-z]")
             echo "Invalid Input"; exit 1
         ;;
     esac
