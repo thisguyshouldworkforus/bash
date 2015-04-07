@@ -26,6 +26,7 @@ while true; do
         echo "No Panel"
       ;;
       "*")
-        echo "Invalid Input"; break;
+        echo "Invalid Input";
+        exit 1;
   esac
 done;
