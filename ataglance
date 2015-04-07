@@ -22,7 +22,7 @@ read type
             echo "Ubuntu Stuff"
         ;;
         "4" )
-            echo "No Panel"
+            echo "No Panel / Simple Control Panel"
         ;;
         * )
             echo "Invalid Input"
