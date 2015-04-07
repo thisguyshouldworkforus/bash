@@ -1,0 +1,32 @@
+#! /bin/bash
+#
+# Date: April 2015
+# Author: Alexander S. (info@ThisGuyShouldWorkFor.Us)
+#
+# https://github.com/misteralexander/bash
+#
+# Query running services, ask a few good questions and provide that information in a quick "At-A-Glance" heads-up
+#
+# Written for use on GoDaddy VPH2/VPH3 Linux servers
+
+echo -e "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n"
+read type
+if [[ $type -eq 1 ]]
+  then
+      echo "cpanel stuff"
+  elif [[ $type -eq 2 ]]
+    then
+      echo "plesk stuff"
+    fi
+  elif [[ $type -eq 3 ]]
+    then
+      echo "ubuntu stuff"
+    fi
+  elif [[ $type -eq 4 ]]
+    then
+      echo "no panel stuff"
+    fi
+  else
+    echo "Invalid Input"
+    exit 1;
+fi
