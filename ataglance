@@ -8,24 +8,24 @@
 # Query running services, ask the system a few good questions and provide that information in a quick "At-A-Glance" heads-up
 #
 # Written for use on GoDaddy VPH2/VPH3 Linux servers
-while true; do
 echo -en "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n\nEnter Selection: "
 read type
+while true do;
     case $type in
         "1" )
-            echo "cPanel Stuff"; done;
+            echo "cPanel Stuff";
         ;;
         "2" )
-            echo "Plesk Stuff"; done;
+            echo "Plesk Stuff";
         ;;
         "3" )
-            echo "Ubuntu Stuff"; done;
+            echo "Ubuntu Stuff";
         ;;
         "4" )
-            echo "No Panel / Simple Control Panel"; done;
+            echo "No Panel / Simple Control Panel";
         ;;
         * )
-            echo "Invalid Input"; done;
+            echo "Invalid Input";
         ;;
     esac
 done;
