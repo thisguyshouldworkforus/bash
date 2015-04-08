@@ -28,4 +28,4 @@ while true do;
             echo "Invalid Input";
         ;;
     esac
-done;
+done
