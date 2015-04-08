@@ -14,18 +14,23 @@ while true; do
     case $type in
         "1" )
             echo "cPanel Stuff";
+            done
         ;;
         "2" )
             echo "Plesk Stuff";
+            done
         ;;
         "3" )
             echo "Ubuntu Stuff";
+            done
         ;;
         "4" )
             echo "No Panel / Simple Control Panel";
+            done
         ;;
         * )
             echo "Invalid Input";
+            done
         ;;
     esac
 done
