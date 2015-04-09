@@ -12,7 +12,7 @@ echo -en "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3.
 read type
 while true; do
     case $type in
-        "1" )
+        "1")
             echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n\nEnter Selection: ";
             read cpopt
                 case $cpopt in
@@ -29,19 +29,19 @@ while true; do
                         break
                     ;;
                 esac
-        "2" )
+        "2")
             echo "Plesk Stuff";
             break
         ;;
-        "3" )
+        "3")
             echo "Ubuntu Stuff";
             break
         ;;
-        "4" )
+        "4")
             echo "No Panel / Simple Control Panel";
             break
         ;;
-        * )
+        *)
             echo "Invalid Input";
             break
         ;;
