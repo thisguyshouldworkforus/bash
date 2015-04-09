@@ -28,7 +28,7 @@ while true; do
                         echo "You did not choose an option, lets go back!"
                         break
                     ;;
-                esac
+                esac;;
         "2")
             echo "Plesk Stuff";
             break
