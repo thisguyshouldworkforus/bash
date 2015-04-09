@@ -18,6 +18,7 @@ while true; do
                 case $cpopt in
                     "1")
                         echo "sub1"
+                        echo "Okay, that's done!"
                         break
                     ;;
                     "2")
