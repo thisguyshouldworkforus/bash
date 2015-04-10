@@ -5,8 +5,8 @@
 #
 # https://github.com/misteralexander/cPanelFixAll
 #
-# Fix YUM, fixing some of the most common cPanel error on a new server
-# Written for use on GoDaddy VPH3 (Vertigo) servers
+# Creating a heads-up server "At-A-Glance" look
+# Will (eventually) be merged with ataglance.sh (main script)
 
 # OS Type:
 ver=$(cat /etc/centos-release | awk '{print $1}');
