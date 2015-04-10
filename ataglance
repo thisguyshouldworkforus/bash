@@ -31,7 +31,7 @@ while true; do
                         break
                     ;;
                 esac
-			done
+			done;;
         "2")
             echo "Plesk Stuff";
             break
