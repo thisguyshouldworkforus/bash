@@ -14,7 +14,7 @@ while true; do
 	case $type in
 		"1")
 			while true; do
-			echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n\nEnter Selection: ";
+			echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n3. Go Back\n\nEnter Selection: ";
 			read cpopt
 				case $cpopt in
 					"1")
@@ -25,9 +25,8 @@ while true; do
 						echo "sub2"
 						break
 					;;
-					*)
-						echo "You did not choose an option, lets go back!"
-						break 2
+					"3" )
+						break 1
 					;;
 				esac
 			done
