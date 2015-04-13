@@ -19,30 +19,30 @@ while true; do
 					case $cpopt in
 						"1")
 							echo "Did This!"
-							sleep 2
+							sleep 1
 							clear
 							continue
 							;;
 						"2")
 							echo "Did That!"
-							sleep 2
+							sleep 1
 							clear
 							continue
 						;;
 						"3" )
 							echo "Going Back!"
-							sleep 2
+							sleep 1
 							clear
 							break
 						;;
 						"4" )
 							echo "Exiting..."
-							sleep 2
+							sleep 1
 							break 2
 						;;
 						*)
 							echo "Invalid Input";
-							sleep 2
+							sleep 1
 							clear
 							continue
 						;;
@@ -51,30 +51,30 @@ while true; do
 			;;
 		"2")
 			echo "Plesk Stuff";
-			sleep 2
+			sleep 1
 			clear
 			continue
 		;;
 		"3")
 			echo "Ubuntu Stuff";
-			sleep 2
+			sleep 1
 			clear
 			continue
 		;;
 		"4")
 			echo "No Panel / Simple Control Panel";
-			sleep 2
+			sleep 1
 			clear
 			continue
 		;;
 		"5")
 			echo "Exiting..."
-			sleep 2
+			sleep 1
 			break
 		;;
 		*)
 			echo "Invalid Input";
-			sleep 2
+			sleep 1
 			clear
 			continue
 		;;
