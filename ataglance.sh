@@ -13,6 +13,7 @@ read type
 while true; do
 	case $type in
 		"1")
+			while true; do
 			echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n\nEnter Selection: ";
 			read cpopt
 				case $cpopt in
@@ -26,9 +27,11 @@ while true; do
 					;;
 					*)
 						echo "You did not choose an option, lets go back!"
-						break
+						break 2
 					;;
-				esac;;
+				esac
+			done
+			;;
 		"2")
 			echo "Plesk Stuff";
 			break
