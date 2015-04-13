@@ -9,44 +9,74 @@
 #
 # Written for use on GoDaddy VPH2/VPH3 Linux servers
 while true; do
-	echo -en "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n\nEnter Selection: "
+	echo -en "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n5.) Exit\n\nEnter Selection: "
 	read type
 	case $type in
 		"1")
 			while true; do
-				echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n3. Go Back\n\nEnter Selection: ";
+				echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n3. Go Back\n4. Exit\n\nEnter Selection: ";
 				read cpopt
 					case $cpopt in
 						"1")
-							echo "sub1"
-							break
+							echo "Did This!"
+							sleep 2
+							clear
+							continue
 							;;
 						"2")
-							echo "sub2"
-							break
+							echo "Did That!"
+							sleep 2
+							clear
+							continue
 						;;
 						"3" )
-							echo "Going Back"
+							echo "Going Back!"
+							sleep 2
+							clear
+							break
+						;;
+						"4" )
+							echo "Exiting..."
+							sleep 2
 							break 2
+						;;
+						*)
+							echo "Invalid Input";
+							sleep 2
+							clear
+							continue
 						;;
 					esac
 			done
 			;;
 		"2")
 			echo "Plesk Stuff";
-			break
+			sleep 2
+			clear
+			continue
 		;;
 		"3")
 			echo "Ubuntu Stuff";
-			break
+			sleep 2
+			clear
+			continue
 		;;
 		"4")
 			echo "No Panel / Simple Control Panel";
+			sleep 2
+			clear
+			continue
+		;;
+		"5")
+			echo "Exiting..."
+			sleep 2
 			break
 		;;
 		*)
 			echo "Invalid Input";
-			break
+			sleep 2
+			clear
+			continue
 		;;
 	esac
 done
