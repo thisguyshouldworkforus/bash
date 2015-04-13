@@ -26,7 +26,7 @@ while true; do
 						break
 					;;
 					"3" )
-						break 1
+						break 2
 					;;
 				esac
 			done
