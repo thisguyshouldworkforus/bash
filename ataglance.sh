@@ -1,5 +1,5 @@
-#! /bin/bash
-#
+#!/bin/bash
+
 # Date: April 2015
 # Author: Alexander S. (info@ThisGuyShouldWorkFor.Us)
 #
@@ -9,11 +9,13 @@
 #
 # Written for use on GoDaddy VPH2/VPH3 Linux servers
 while true; do
+	clear
 	echo -en "\nWhat type of server is this? [DIGIT ONLY]\n\n1. cPanel\n2. Plesk\n3. Ubuntu\n4. No Panel / Simple Control Panel\n5.) Exit\n\nEnter Selection: "
 	read type
 	case $type in
 		"1")
 			while true; do
+				clear
 				echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n3. Go Back\n4. Exit\n\nEnter Selection: ";
 				read cpopt
 					case $cpopt in
