@@ -72,6 +72,7 @@ while true; do
 		"5")
 			echo "Exiting..."
 			sleep 1
+			clear
 			break
 		;;
 		*)
