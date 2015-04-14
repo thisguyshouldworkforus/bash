@@ -1,10 +1,24 @@
 #!/bin/bash
 
-# Date: April 2015
-# Author: Alexander S. (info@ThisGuyShouldWorkFor.Us)
-#
-# https://github.com/misteralexander/bash
-#
+# --------------------------------------------------------------	#
+# Author: Alexander Snyder											#
+# Email: info@ThisGuyShouldWorkFor.Us								#
+#																	#
+# Description: 														#
+# 																	#
+# Licensing:														#
+# The work contained herein, and those works referenced				#
+# are free software; you can redistribute it and/or modify it under	#
+# the terms of the GNU General Public License as published by the	#
+# Free Software Foundation either version 3 of the License, or		#
+# (at your option) any later version.								#
+#																	#
+# Repository: 														#
+# https://github.com/misteralexander/bash							#
+#																	#
+# Dependency: (None)												#
+# --------------------------------------------------------------	#
+
 # Query running services, ask the system a few good questions and provide that information in a quick "At-A-Glance" heads-up
 #
 # Written for use on GoDaddy VPH2/VPH3 Linux servers

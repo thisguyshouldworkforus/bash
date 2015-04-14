@@ -1,12 +1,27 @@
-#! /bin/bash
-#
-# Date: January 2013
-# Author: Alexander S. (info@misteralexander.com)
-#
-# https://github.com/misteralexander/bash
-#
-# Very first LAMP script
 #!/bin/bash
+
+# --------------------------------------------------------------	#
+# Author: Alexander Snyder											#
+# Email: info@ThisGuyShouldWorkFor.Us								#
+#																	#
+# Description: 														#
+# 																	#
+# Licensing:														#
+# The work contained herein, and those works referenced				#
+# are free software; you can redistribute it and/or modify it under	#
+# the terms of the GNU General Public License as published by the	#
+# Free Software Foundation either version 3 of the License, or		#
+# (at your option) any later version.								#
+#																	#
+# Repository: 														#
+# https://github.com/misteralexander/bash							#
+#																	#
+# Dependency: (None)												#
+# --------------------------------------------------------------	#
+
+
+# Very first script
+
 ###########################################
 # Fresh Install of CentOS 6 - Making LAMP #
 ###########################################
