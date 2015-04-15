@@ -32,6 +32,7 @@ while true; do
 		"1")
 			while true; do
 				clear
+				cpanel.ataglance
 				echo -en "Here is the stuff we can do for a cPanel server\n\n1. do this\n2. do that\n3. Go Back\n4. Exit\n\nEnter Selection: ";
 				read cpopt
 					case $cpopt in

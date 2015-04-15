@@ -19,7 +19,7 @@
 # Dependency: 
 # --------------------------------------------------------------
 
-# Contains built menu for inclusion in "ataglance.sh"
+# Contains non-menu functions for 'allthethings.sh'
 
 function menu.cp() {
 echo -e "\t+--------------------------------+";
