@@ -4,7 +4,7 @@
 # Email: info@ThisGuyShouldWorkFor.Us
 #
 # Description: establishing colors to use in scripts!
-# Source: http://misc_flogisoft_com/bash/tip_colors_and_formatting
+# Source: http://misc.flogisoft.com/bash/tip_colors_and_formatting
 #
 # Licensing: 
 # The work contained herein, and those works referenced
@@ -65,4 +65,3 @@ lmagenta_back='\e[105m'
 lcyan_back='\e[106m'
 white_back='\e[107m'
 
-echo -e $blue_back$red"Hello World"$norm$norm_back
