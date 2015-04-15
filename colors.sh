@@ -38,4 +38,4 @@ lgray=$(\033[0;37m)
 white=$(\033[1;37m)
 norm=$(\033[0m)
 
-echo $red"Hello World"$norm
+echo -e $red"Hello World"$norm
