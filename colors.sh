@@ -4,7 +4,7 @@
 # Email: info@ThisGuyShouldWorkFor.Us
 #
 # Description: establishing colors to use in scripts!
-# Source: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+# Source: http://misc_flogisoft_com/bash/tip_colors_and_formatting
 #
 # Licensing: 
 # The work contained herein, and those works referenced
@@ -44,23 +44,25 @@ lblue='\e[94m'
 lmagenta='\e[95m'
 lcyan='\e[96m'
 white='\e[97m'
+norm='\e[0m'
 
 # Background Colors
-norm.back='\e[49m'
-black.back='\e[40m'
-red.back='\e[41m'
-green.back='\e[42m'
-yellow.back='\e[43m'
-blue.back='\e[44m'
-magenta.back='\e[45m'
-cyan.back='\e[46m'
-lgray.back='\e[47m'
-dgray.back='\e[100m'
-lred.back='\e[101m'
-lgreen.back='\e[102m'
-lyellow.back='\e[103m'
-lblue.back='\e[104m'
-lmagenta.back='\e[105m'
-lcyan.back='\e[106m'
-white.back='\e[107m'
+norm_back='\e[49m'
+black_back='\e[40m'
+red_back='\e[41m'
+green_back='\e[42m'
+yellow_back='\e[43m'
+blue_back='\e[44m'
+magenta_back='\e[45m'
+cyan_back='\e[46m'
+lgray_back='\e[47m'
+dgray_back='\e[100m'
+lred_back='\e[101m'
+lgreen_back='\e[102m'
+lyellow_back='\e[103m'
+lblue_back='\e[104m'
+lmagenta_back='\e[105m'
+lcyan_back='\e[106m'
+white_back='\e[107m'
 
+echo -e $blue_back$red"Hello World"$norm$norm_back
