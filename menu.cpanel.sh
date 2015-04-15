@@ -24,5 +24,5 @@ function menu.cp() {
 echo -en "\t+--------------------------------+\n";
 echo -en "\t+  cPanel Server  +\n";
 echo -en "\t+--------------------------------+\n";
-
 }
+menu.cp

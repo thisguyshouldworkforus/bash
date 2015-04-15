@@ -32,7 +32,7 @@ fi
 # Make sure our working directory exists
 # if it does, then switch to it, if not,
 # then make the directory and change to it.
-if [[ -d ! /root/att ]]
+if [[ ! -d /root/att ]]
 	then
 		mkdir /root/att
 fi
@@ -42,7 +42,7 @@ fi
 # future readability and my own sanity
 wget -O /root/att/functions.sh --no-cache https://www.dropbox.com/s/4yzr1jahvg5l13n/functions.sh
 
-if [[ -f ! /root/att/functions.sh ]]
+if [[ ! -f /root/att/functions.sh ]]
 	then
 		echo -e "I couldn't get the functions file!\n\n"
 		echo "Please contact the Author, so they may inspect this!"

@@ -21,11 +21,7 @@
 
 # Contains non-menu functions for 'allthethings.sh'
 
-function menu.cp() {
-echo -e "\t+--------------------------------+";
-echo -e "\t+  cPanel Server  +";
-echo -e "\t+--------------------------------+";
-}
+
 #
 function menu.pl() {
 echo
