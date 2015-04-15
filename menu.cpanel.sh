@@ -20,8 +20,17 @@
 # --------------------------------------------------------------
 
 function menu.cp() {
+clear
 echo -en "\t+--------------------------------+\n";
-echo -en "\t+  cPanel Server  +\n";
+echo -en "\t\t+  cPanel Server  +\n";
 echo -en "\t+--------------------------------+\n";
+echo -en "1.) Check for EasyApache Error\n"
+echo -en "2.) Check for zlib (32-bit version required for many packages)\n"
+echo -en "3.) Enable \"Updates\", \"Extras\", and \"Plus\" Repositories\n"
+echo -en "4.) Flush the YUM cache\n"
+echo -en "5.) Update the system (YUM Update)\n"
+echo -en "6.) Check the history file\n"
+echo -en "7.) Exit\n\n"
+echo -en "Enter Selection: \n\n"
 }
 menu.cp

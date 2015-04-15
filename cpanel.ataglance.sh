@@ -20,46 +20,53 @@
 # --------------------------------------------------------------
 
 function cpanel.ataglance() {
-
+clear
+echo -en "\t+--------------------------------+\n";
+echo -en "\t\t+  Heads Up  +\n";
+echo -en "\t+--------------------------------+\n";
 # OS Type:
 ver=$(cat /etc/centos-release | awk '{print $1}');
 vt=$(cat /etc/centos-release | awk '{print $3}');
-echo -en "\nOperating System:\n"$ver $vt"\n\n";
+echo -en "\n+| Operating System: "$ver $vt"\n";
 
 # Uptime:
 up=$(uptime | awk '{print $3}')
-echo -en "Uptime:\n"$up" days\n\n"
+echo -en "+| Uptime: "$up" days\n"
 
 # Load Average:
 load=$(uptime | awk '{print $10 $11 $12}')
-echo -en "Load Average (1, 5, 15):\n"$load"\n\n"
+echo -en "+| Load Average: "$load"\n"
 
 # Disk Usage:
 disk=$(df -h | awk 'NR==2{print $2}')
 avail=$(df -h | awk 'NR==2{print $4}')
-echo -en "Disk Size:\n"$disk"\n\n"
-echo -en "Available Disk:\n"$avail"\n\n"
+echo -en "+| Disk Size: "$disk"\n"
+echo -en "+| Available Disk: "$avail"\n"
 
 # Inode Usage:
 inode=$(df -ih | awk 'NR==2{print $5}')
-echo -en "Inode Usage:\n"$inode"\n\n"
+echo -en "+| Inode Usage: "$inode"\n"
 
 # Memory Usage:
 free=$(free -m | awk 'NR==3{print $4}')
 math=$(( $free / 1024 ))
 if [[ $math -eq 0 ]]
 	then
-		echo -en "Free Memory:\n"$free" Megabytes\n"
+		echo -en "+| Free Memory: "$free" Megabytes\n"
 	else
-		echo -en "Free Memory:\n"$math" Gigabyte(s)\n\n"
+		echo -en "+| Free Memory: "$math" Gigabyte(s)\n"
 fi
 
 # Current Server Connections:
 http=$(netstat -ntpa | grep -i established | grep ":80" | wc -l)
 https=$(netstat -ntpa | grep -i established | grep ":443" | wc -l)
-echo -en "Current Server Connections:\nPort 80: "$http"\nPort 443: "$https"\n\n"
+echo -en "+| Current Server Connections:\n"
+echo -en "++| Port 80: "$http"\n"
+echo -en "++| Port 443: "$https"\n"
 
 # MySQL Processlist
 db=$(mysql -uroot -Bse "SELECT * FROM information_schema.processlist;" | grep -v SELECT | grep -v Sleep | awk '{print $1}' | uniq | wc -l)
-echo -e "ACTIVE MySQL Processes (not counting our query or sleeping):\n"$db"\n\n"
+echo -en "+| ACTIVE MySQL Processes (not counting our query or sleeping):\n"
+echo -en "++| "$db"\n\n"
 }
+cpanel.ataglance
