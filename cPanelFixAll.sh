@@ -52,7 +52,7 @@ fi
 # Update our repositories to make sure we are listen to all channels
 updaterepo=$(sed 's/#baseurl/baseurl/g' -i /etc/yum.repos.d/CentOS-Base.repo; sed -r 's/gpgcheck=1/gpgcheck=1\nenabled=1/g' -i /etc/yum.repos.d/CentOS-Base.repo; sed '/enabled=0/d' -i /etc/yum.repos.d/CentOS-Base.repo; echo "skip_broken=1" >> /etc/yum.conf);
 
-# Flush the cache, we want to make sure we have the latest package listen
+# Flush the cache, we want to make sure we have the latest package list
 flushcache=$(yum clean all)
 
 # Determine the last time YUM was updated and store that YMD string in the variable
