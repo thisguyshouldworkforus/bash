@@ -33,7 +33,7 @@
 function postfix() {
 POSTCOUNT=$(postqueue -p | tail -n 1 | cut -d' ' -f5)
 
-service postfix stop #tkemp 05.31.2014
+$(service postfix stop) #tkemp05312014
 # Putting information into the output file that Postfix is installed
 echo -e "\nPostfix is installed\nGetting Postfix Queue Information\n" | tee -a "/root/spam_proof.$(date +%F).txt"
 
@@ -44,28 +44,26 @@ echo -e "\nMaking backups of 100 emails currently in the queue.\n"|tee -a "/root
 mkdir -p "/root/mailbackup"
 
 # Getting a list of one hundred emails in the customer and putting them in files with the queue id in /root/mailbackup
-for e in $(postqueue -p 2>/dev/null|egrep "[A-Z0-9]{11,}" | awk '{print $1}' | tr -d "*" | egrep -v "[:punct:]" | head -n 100); do
-	postcat -q $e > "/root/mailbackup/$e"
+for e in $(postqueue -p 2>/dev/null | egrep "[A-Z0-9]{11,}" | awk '{print $1}' | tr -d "*" | egrep -v "[:punct:]" | head -n 100); do
+$(postcat -q) "$e" > "/root/mailbackup/$e"
 done
 
 # Parsing the backed up emails to find the top ten addresses sending email
 echo -e "\nFinding the top ten senders in the backed up email\n" | tee -a "/root/spam_proof.$(date +%F).txt"
-cat "/root/mailbackup/*" | grep "sender:" | awk '{print $2}' | sort | uniq -c | sort -r | head -n 10 | tee -a "/root/spam_proof.$(date +%F).txt"
+egrep 'sender:' "/root/mailbackup/*" | awk '{print $2}' | sort | uniq -c | sort -r | head -n 10 | tee -a "/root/spam_proof.$(date +%F).txt"
 
 # Parsing the backed up emails to find the top ten scripts sending email if applicable
 echo -e "\nLooking for scripts sending email\n" | tee -a "/root/spam_proof.$(date +%F).txt"
-cat "/root/mailbackup/*" | grep "X-PHP-Originating-Script:" | awk '{print $2}' | sort | uniq -c | sort -r | head -n 10 | tee -a "/root/spam_proof.$(date +%F).txt"
+egrep 'X-PHP-Originating-Script:' "/root/mailbackup/*" | awk '{print $2}' | sort | uniq -c | sort -r | head -n 10 | tee -a "/root/spam_proof.$(date +%F).txt"
 
 # Parsing the backed up emails to find the top ten subjects of email being sent
 echo -e "\nGetting the top ten subjects\n" | tee -a "/root/spam_proof.$(date +%F).txt"
-cat "/root/mailbackup/*" | grep "Subject:" | sort | uniq -c | sort -r | head -n 10 | tee -a "/root/spam_proof.$(date +%F).txt"
+egrep 'Subject:' "/root/mailbackup/*" | sort | uniq -c | sort -r | head -n 10 | tee -a "/root/spam_proof.$(date +%F).txt"
 
 # Getting the number of emails currently in the queue
 echo -e "\nCounting the email in the queue. This may take a while.\n" | tee -a "/root/spam_proof.$(date +%F).txt"
 
-
-
-echo -e "\nNumber of emails in the queue:\t$(echo $POSTCOUNT)" | tee -a "/root/spam_proof.$(date +%F).txt"
+echo -e "\nNumber of emails in the queue:\t${POSTCOUNT}" | tee -a "/root/spam_proof.$(date +%F).txt"
 
 # End of Postfix section
 }
@@ -73,7 +71,7 @@ echo -e "\nNumber of emails in the queue:\t$(echo $POSTCOUNT)" | tee -a "/root/s
 function qmail() {
 QCOUNT=$(/var/qmail/bin/qmail-qstat)
 
-service qmail stop #added by tkemp 05.31.2014
+$(service qmail stop) #tkemp05312014
 
 # If Qmail is installed starting to gather information
 echo -e "\nQmail is installed\nGetting Qmail Queue Information\n" | tee -a "/root/spam_proof.$(date +%F).txt"
