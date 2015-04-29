@@ -5,7 +5,7 @@
 # Email: info@ThisGuyShouldWorkFor.Us
 # Copyright (C) 2015 Alexander Snyder
 # 
-# Description: 
+# Description: This script will copy one cPanel account into another
 #
 # Licensing: 
 # This program is free software: you can redistribute it and/or modify
@@ -27,3 +27,8 @@
 # Dependency: 
 # --------------------------------------------------------------
 
+echo -en "Please enter the domain you'd like to copy: "
+read input
+owner=$(/scripts/whoowns $input)
+
+$(find /home/$owner/public_html/ -type f | xargs cp  )
