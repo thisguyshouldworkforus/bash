@@ -63,7 +63,7 @@ while true; do
 			echo "Removing user now"
 			user=$(grep 99999 /etc/passwd | cut -d":" -f1)
 			sed "/$user:all/d" -i /var/cpanel/resellers
-			userdel "$user"
+			userdel -rf "$user"
 			echo "Deleting myself ..."
 			kill=$(find / -type f -name "newwhmuser.sh" | xargs rm -f)
 			echo "$kill"
