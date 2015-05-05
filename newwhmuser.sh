@@ -42,6 +42,10 @@ fi
 echo -n "What is the desired username? (no spaces, please): "
 read input
 
+# Talkback
+echo "You would choose a username like that, smh ..."
+sleep 0.5
+
 # Add the user to the system
 useradd -u 99999 "$input"
 sleep 1
