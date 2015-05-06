@@ -46,35 +46,41 @@ read input
 echo "You would choose a username like that, smh ..."
 sleep 0.5
 
-# Add the user to the system
-useradd -u 99999 "$input"
-sleep 1
+# Make sure our upcoming user does not already exist
+exist=$(grep "99999" "/etc/passwd")
+if [[ -z $exist ]]
+	then
+		# Add the user to the system
+		useradd -u 99999 "$input"
+		sleep 1
+		# Change the password for the new user
+		passwd "$input"
+		# Give the new user full WHM "Root" perms
+		echo "$input:all" >> /var/cpanel/resellers
+		clear
+		sleep 2
+		# Remove the user
+		echo "Press any key to remove the user you just made"
+		read end
+		while true; do
+			case $end in
+				*)
+					clear
+					echo "Removing user now"
+					user=$(grep 99999 /etc/passwd | cut -d":" -f1)
+					sed "/$user:all/d" -i /var/cpanel/resellers
+					userdel -rf "$user"
+					echo "Deleting myself ..."
+					kill=$(find / -type f -name "newwhmuser.sh" | xargs rm -f)
+					echo "$kill"
+					echo "Exiting ..."
+					sleep 0.5
+					break
+					;;
+			esac
+		done
+	else
+		echo "A conflicting UID was found, exiting ..."
+		exit 1
+fi
 
-# Change the password for the new user
-passwd "$input"
-
-# Give the new user full WHM "Root" perms
-echo "$input:all" >> /var/cpanel/resellers
-sleep 2
-
-# Remove the user
-echo -n "Press any key to remove the user you just made"
-read end
-while true; do
-	case $end in
-		*)
-			clear
-			echo "Removing user now"
-			user=$(grep 99999 /etc/passwd | cut -d":" -f1)
-			sed "/$user:all/d" -i /var/cpanel/resellers
-			killf=$(find / -type f -name "$user" | xargs rm -rf)
-			killdir=$(find / -type d -name "$user" | xargs rm -rf)
-			userdel "$user"
-			echo "Deleting myself ..."
-			kill=$(find / -type f -name "newwhmuser.sh" | xargs rm -f)
-			echo "$kill"
-			echo "Exiting ..."
-			sleep 0.5
-			break
-	esac
-done
