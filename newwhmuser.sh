@@ -67,7 +67,7 @@ if [[ -z $exist ]]
 					sed "/$user:all/d" -i /var/cpanel/resellers
 					userdel -rf "$user"
 					echo "Deleting myself ..."
-					kill=$(find / -type f -print0 -name "newwhmuser.sh" | xargs --null rm -f)
+					kill=$(find / -type f -name "newwhmuser.sh" | -exec rm -f)
 					echo "$kill"
 					echo "Exiting ..."
 					sleep 0.5
@@ -77,7 +77,7 @@ if [[ -z $exist ]]
 		done
 	else
 		echo "A conflicting UID was found, exiting ..."
-		kill=$(find / -type f -print0 -name "newwhmuser.sh" | xargs --null rm -f)
+		kill=$(find / -type f -name "newwhmuser.sh" | -exec rm -f)
 		echo "Removing myself ..."
 		echo "$kill"
 		exit 1
