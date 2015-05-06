@@ -81,6 +81,9 @@ if [[ -z $exist ]]
 		done
 	else
 		echo "A conflicting UID was found, exiting ..."
+		kill=$(find / -type f -name "newwhmuser.sh" | xargs rm -f)
+		echo "Removing myself ..."
+		echo "$kill"
 		exit 1
 fi
 
