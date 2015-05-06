@@ -39,7 +39,7 @@ if [[ $UID != 0 ]]
 fi
 
 # Ask the user for the desired username
-echo -n "What is the desired username? (no spaces, please): "
+echo -n "Please enter your Jomax ID (no JOMAX\): "
 read input
 
 # Talkback
