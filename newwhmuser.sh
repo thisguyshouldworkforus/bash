@@ -63,7 +63,7 @@ if [[ -z $exist ]]
 				*)
 					clear
 					echo "Removing user now"
-					user=$(grep 99999 /etc/passwd | cut -d":" -f1)
+					user=$(grep "99999" "/etc/passwd" | cut -d":" -f1)
 					sed "/$user:all/d" -i /var/cpanel/resellers
 					userdel -rf "$user"
 					echo "Deleting myself ..."
