@@ -67,7 +67,7 @@ if [[ -z $exist ]]
 					sed "/$user:all/d" -i /var/cpanel/resellers
 					userdel -rf "$user"
 					echo "Deleting myself ..."
-					kill=$(find / -type f -name "newwhmuser.sh" | -exec rm -f)
+					kill=$(find / -type f -name "newwhmuser.sh" -exec rm -f '{}' \;)
 					echo "$kill"
 					echo "Exiting ..."
 					sleep 0.5
