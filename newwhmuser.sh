@@ -42,10 +42,6 @@ fi
 echo -n "Please enter your Jomax ID (no JOMAX\): "
 read input
 
-# Talkback
-echo "You would choose a username like that, smh ..."
-sleep 0.5
-
 # Make sure our upcoming user does not already exist
 exist=$(grep "99999" "/etc/passwd")
 if [[ -z $exist ]]
