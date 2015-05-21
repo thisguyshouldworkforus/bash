@@ -40,7 +40,8 @@ elif [[ $mta -eq postfix ]]
 	then
 		mta-count=$(parse mail log for outgoing messages, count them)
 else
-	echo "Nothing Found!"
+	mta-count=$(egrep -i '$(date +"%b %d")|stat=Sent' /var/log/maillog | wc -l)
+	echo "We didn't find Exim, Qmail, or Postfix, but \"/var/log/maillog\" has counted $mta-count today"
 fi
 
 date +%Y-%m-%d
