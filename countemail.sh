@@ -32,7 +32,7 @@ mta=$(egrep -wi 'exim|qmail|postfix' /etc/init.d/*)
 
 if [[ $mta -eq exim ]]
 	then
-		mta-count=$(parse mail log for outgoing messages, count them)
+		mta-count=$(egrep -i '$(date +"%Y-%m-%d")|<=' /var/log/exim_mainlog | wc -l)
 elif [[ $mta -eq qmail ]]
 	then
 		mta-count=$(parse mail log for outgoing messages, count them)
