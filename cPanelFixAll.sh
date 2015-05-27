@@ -98,6 +98,6 @@ if [[ ! -z $yumupdate ]]
 fi
 # Update WHM, ensure we are on the most recent major/minor version (11.48)
 ver=$(cat /usr/local/cpanel/version | cut -b4,5)
-while [[ $ver -lt 48 ]] do
+while [[ $ver -lt 50 ]] do
 	/scripts/upcp --force;
 done
