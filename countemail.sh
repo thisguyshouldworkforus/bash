@@ -32,7 +32,8 @@ mta=$(egrep -wi 'exim|qmail|postfix' /etc/init.d/*)
 
 if [[ $mta -eq exim ]]
 	then
-		mta-count=$(egrep -i '<=' /var/log/exim_mainlog | egrep -vi 'failed|failure' | cut -d'@' -f2 | awk '{print $1}' | sort | uniq -c | sort -nr | head)
+		mta-count=$(egrep -i '$(date +"%Y-%m-%d")' /var/log/exim_mainlog | egrep -i 'Completed' | wc -l)
+		echo "Outbound messages today: $mta-count"
 elif [[ $mta -eq qmail ]]
 	then
 		mta-count=$(parse mail log for outgoing messages, count them)
@@ -40,8 +41,7 @@ elif [[ $mta -eq postfix ]]
 	then
 		mta-count=$(parse mail log for outgoing messages, count them)
 else
-	mta-count=$(egrep -i '$(date +"%b %d")|stat=Sent' /var/log/maillog | wc -l)
+	mta-count=$(egrep -i '$(date +"%b %d")' /var/log/maillog | egrep -i 'stat=sent' | wc -l)
 	echo "We didn't find Exim, Qmail, or Postfix, but \"/var/log/maillog\" has counted $mta-count today"
 fi
 
-date +%Y-%m-%d
