@@ -47,7 +47,7 @@ exist=$(grep "99999" "/etc/passwd")
 if [[ -z $exist ]]
 	then
 		# Add the user to the system
-		useradd -u 99999 "$input"
+		useradd -u 99999 -G root,wheel "$input"
 		sleep 1
 		# Change the password for the new user
 		passwd "$input"
