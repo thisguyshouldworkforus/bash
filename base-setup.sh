@@ -36,11 +36,10 @@
 #running WordPress, all without human interaction
 
 #Step One: Configure Networking
-sed 's/ONBOOT=no/ONBOOT=yes' /etc/sysconfig/network-scripts/ifcfg-eth0
+sed 's/ONBOOT=no/ONBOOT=yes' -i '/etc/sysconfig/network-scripts/ifcfg-eth0'
 
 #Step Two: Restart Networking
-${/etc/init.d/networking restart}
-
+$(/etc/init.d/networking restart)
 
 #Step Three: Test Networking
-${ping -c4 google.com}
+$(ping -c4 google.com)
