@@ -182,4 +182,34 @@ This is my first shell script of any real consequence.  It was written around 20
     - Install the Katello tools and InSights Client
     - Performing a FULL SYSTEM UPDATE
 
+## Splunk ACL Check
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
+
+[splunk_acl_check.bash](splunk_acl_check.bash) is a script that will attempt to test files that splunk is unable to read, and then set an ACL for splunk to read it.
+
+- In this script it will:
+  - Make sure the log we're using as our source of truth actually exists
+  - Generate a list of files that splunk cannot read (`grep -Eo "Insufficient permissions to read file='.*'" /opt/splunkforwarder/var/log/splunk/splunkd.log | sort -u`)
+  - Check to make sure the line we're operating on matches an expected pattern (`(Insufficient permissions to read file=\')(.*)(\')`)
+  - Since the line matches our expected pattern (regex) pull out the second matching group
+  - Make sure the file we're referencing actually exists
+  - This is a path that is not owned by Splunk, but splunk still needs to read (`[[ ! "$ACL_FILE" =~ ^/opt/splunkforwarder/.*$ ]]`)
+    - `function TestACL` is just a simple function to return if splunk has read permission on the `"$ACL_FILE"`
+      - `return 0`: Log a success message, `$(which logger) "SPLUNK_ACL --- ACL is already set on \"$ACL_FILE\", no action required."`
+      - `return 1`:
+        - Splunk cannot read this file, ACLs are not set, lets fix that!
+        - Gather information about the file such as the `File Partition` it resides on, where that partition is mounted, the full file path, etc, etc ...
+    - `function EnableACLs`
+      - Define a `TESTFILE` (`TESTFILE=${1}/facltest."$(date +"%s")"`)
+      - Determine the Operating System version (`el6|el7|el8`)
+      - Testing for ACL Support
+        - If `setfacl` fails (_on TESTFILE_), remove `TESTFILE` and log a message:
+          - `$(which logger) "SPLUNK_ACL --- ACLs are not supported on $(hostname), adjusting..."`
+      - Backup the `/etc/fstab` file
+      - Take the information that was passed to the function (Partition, Mount) and rewrite that entry in the `/etc/fstab` file to properly support ACLs
+      -  If `function EnableACLs` failed, log a message: `$(which logger) "SPLUNK_ACL --- Failed to enable ACLs for filesystem \"$FILEMOUNT\"."`
+      -  If `function EnableACLs` succeeds, set FACL on that previously failed file
+         -  Test that ACLs now work
+
 ## 
+
