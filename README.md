@@ -151,3 +151,35 @@ This is my first shell script of any real consequence.  It was written around 20
     - Get the [system-bootstrap.py](https://github.com/thisguyshouldworkforus/python/blob/main/system_bootstrap.py) script and run it.
     - Install the InSights Client and Katello Tools
 
+## Seven 2 Seven
+[![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)  
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
+
+[seven2seven.bash](seven2seven.bash) is a script to automate the conversion of CentOS 7 --> RHEL 7.
+
+- In this script it will:
+    - Contruct a success message (by creating a function with special formatting)
+    - Construct an error message (by creating a function with special formatting)
+    - Make sure we're in the expected path (expecting to be in `/root`)
+    - Stop Chef from running (_we're chaning a ton about the system, we don't want Chef trying to revert things mid-change_)
+    - Disable Chef auto-start (_there will be at least one reboot, so we want to make sure Chef doesn't get started after reboot_)
+    - RedHat Satellite in CentOS 5 was free and called `Spacewalk`. We need to remove that, if it exists.
+    - Remove unsupported architecture apps (the conversion process fails when there are **both** `x86` and `x86_64` binary architectures, so we are removing the 32-bit `x86` programs/libraries. They can be re-added later.)
+    - In case there was a previously failed conversion attempt, we need to remove the `subscription-manager` if there is one
+    - Tell YUM to always skip-broken (_a bit of housekeeping that isn't a bad idea_)
+    - Collect the hostname, as the system understands it to be
+    - Install the convert2rhel Package (from EPEL)
+    - Determine the RedHat Satellite Capsule server to use
+    - Create the RHSM Working Directory (`mkdir -p /usr/share/convert2rhel/{subscription-manager,redhat-release/Server}`)
+    - Get the content we need, from PKGRepo
+    - Quietly install Python dependencies
+    - Get the satellite certificate, for later authorization
+    - Flush YUM cache
+    - Install the Satellite Certificate (_so we can talk to RedHat Satellite_)
+    - Generate a proper YUM Cache
+    - Determine the proper activation key to use
+    - Use `convert2rhel` and actually Convert CentOS 7 --> RHEL 7
+    - Install the Katello tools and InSights Client
+    - Performing a FULL SYSTEM UPDATE
+
+## 
