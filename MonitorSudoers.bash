@@ -1,26 +1,8 @@
 #!/usr/bin/env bash
 
 # --------------------------------------------------------------
-# Copyright (C) 2020: Snyder Business And Technology Consulting, LLC. - All Rights Reserved
-#
 # Date:
 # January 16, 2020
-#
-# Author:
-# Alexander Snyder
-#
-# Email:
-# alexander@sba.tc
-#
-# Repository:
-# https://github.com/thisguyshouldworkforus/bash.git
-#
-# Dependency:
-# None
-#
-# Description:
-# Script to output an MD5Sum of the '/etc/sudoers' file and
-# the contents of the '/etc/sudoers.d' directory and report on changes
 # --------------------------------------------------------------
 
 # Check to see if the checksum file exists
