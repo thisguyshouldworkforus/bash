@@ -10,7 +10,7 @@ A simple repo to hold scripts that I have written over the years for a variety o
 
 
 ## Delete Old Log Files
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
 
 [delete_old_logs.bash](delete_old_logs.bash) is a small script to nuke log files older than 90 days.
 
@@ -23,7 +23,7 @@ A simple repo to hold scripts that I have written over the years for a variety o
   - Logs the actions it has taken per file, in a `while loop`.
 
 ## Fix Splunk Forwarder
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
 
 [FixSplunkForwarder.bash](FixSplunkForwarder.bash) is a shell script to "fix" hostname and network configurations so Splunkfowarder stops complaining.
 
@@ -63,7 +63,7 @@ A simple repo to hold scripts that I have written over the years for a variety o
         - Checks for the Splunk `/opt/splunkforwarder/etc/system/local` directory, if not found, it creates it.
         - Writes the proper Splunk `deployment.conf` file.
       - If No:
-        - Attempts to re-register to RedHat Satellite [![ ](https://img.shields.io/badge/ALERT-Deprecated%20in%20Satellite%20v6.9-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/release_notes/index#deprecated_functionality)
+        - Attempts to re-register to RedHat Satellite [![ ](https://img.shields.io/badge/ALERT-Deprecated%20in%20Satellite%20v6.9-blue)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/release_notes/index#deprecated_functionality)
           - If successful:
             - Checking splunk UID/GID
             - Installing Splunk Forwarder
@@ -77,14 +77,14 @@ A simple repo to hold scripts that I have written over the years for a variety o
     - Validate Splunk and System hostnames match!
 
 ## LAMP
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
 
 [lamp.sh](lamp.sh)
 
 This is my first shell script of any real consequence.  It was written around 2012/2013 and doesn't contain any logic. Its fun to go back and see where we've been!
 
 ## Monitor Sudoers
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
 
 [MonitorSudoers.bash]([MonitorSudoers.bash) is a script to output an MD5Sum of the `/etc/sudoers` file and the contents of the `/etc/sudoers.d` directory and report on changes
 
@@ -129,8 +129,8 @@ This is my first shell script of any real consequence.  It was written around 20
 
 ## RedHat Satellite Registration
 [![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)  
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
-[![ ](https://img.shields.io/badge/ALERT-Deprecated%20in%20Satellite%20v6.9-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/release_notes/index#deprecated_functionality)  
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
+[![ ](https://img.shields.io/badge/ALERT-Deprecated%20in%20Satellite%20v6.9-blue)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/release_notes/index#deprecated_functionality)  
 
 [rhel_registration.bash](rhel_registration.bash) is a wrapper Shell Script to prepare an environment for RedHat Satellite registration.
 
@@ -153,7 +153,7 @@ This is my first shell script of any real consequence.  It was written around 20
 
 ## Seven 2 Seven
 [![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)  
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
 
 [seven2seven.bash](seven2seven.bash) is a script to automate the conversion of CentOS 7 --> RHEL 7.
 
