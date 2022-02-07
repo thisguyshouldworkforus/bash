@@ -12,3 +12,6 @@ https://github.com/thisguyshouldworkforus/bash
 [ThisGuyShouldWorkFor.Us](https://www.thisguyshouldworkfor.us/)
 
 [Snyder Business And Technology Consulting](https://www.sba.tc)
+
+## LinkedIn
+<https://www.linkedin.com/in/thisguyshouldworkforus/>
