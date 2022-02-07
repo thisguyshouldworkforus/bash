@@ -211,5 +211,19 @@ This is my first shell script of any real consequence.  It was written around 20
       -  If `function EnableACLs` succeeds, set FACL on that previously failed file
          -  Test that ACLs now work
 
-## 
+## Sudo 2 Root
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20%28sudo%29%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
 
+[sudo2root.bash](sudo2root.bash) is a script that will gather a list of users with sudo-to-root privelages
+
+- In this script it will:
+  - Gather a `DATE` variable defined as `date +"%m-%d-%Y %T %Z"`
+  - Gather the `hostname`
+  - Start a `while read` loop with the results from `find /etc/sudoers.d/ /etc/sudoers -type f -print` as `FILE`
+    - Start a nested `while read` loop with the results from `grep -Ei '.*ALL=\(ALL\).*NOPASSWD: ALL' "$FILE" | grep -Eiv '#|wheel' | grep -Ev '^%' | awk '{print $1}'` as `USERS`
+    - Using the ADINT tool, list user privlages, log that information: `$(sudo which logger) "SUDO2ROOT --- DATE=\"$DATE\" HOST=\"$HOST\" FILE=\"$FILE\" USERS=\"$MEMBERS\""`
+  - Start a `while read` loop with the results from `find /etc/sudoers.d/ /etc/sudoers -type f -print` as `FILE`
+    - Start a nested `while read` loop with the results from `grep -Ei '.*ALL=\(ALL\).*NOPASSWD: ALL' "$FILE" | grep -Eiv '#|wheel' | sed 's/%//' | awk '{print $1}'` as `USERGROUP`
+    - Using the ADINT tool, list user group privlages, log that information: `$(sudo which logger) "SUDO2ROOT --- DATE=\"$DATE\" HOST=\"$HOST\" FILE=\"$FILE\" GROUP=\"$USERGROUP\" MEMBERS=\"$MEMBERS\""`
+
+## 

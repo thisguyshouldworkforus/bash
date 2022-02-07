@@ -440,7 +440,7 @@ if yum -y -q update >/dev/null 2>&1
                                 break
                         fi
                     done
-                if /opt/quest/bin/vastool -u "$USERNAME" join -f -c "ou=Linux,ou=Server,dc=SBA,dc=TC" sba.tc
+                if /opt/adauth/bin/adint -u "$USERNAME" join -f -c "ou=Linux,ou=Server,dc=SBA,dc=TC" sba.tc
                     then
                         echo -en "\n\n\nREBOOTING\n\n\nLATER TATER!\n\n\n"
                         $(which shutdown) -r now
