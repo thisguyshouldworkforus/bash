@@ -59,7 +59,7 @@ A simple repo to hold scripts that I have written over the years for a variety o
         - Checks for the Splunk `/opt/splunkforwarder/etc/system/local` directory, if not found, it creates it.
         - Writes the proper Splunk `deployment.conf` file.
       - If No:
-        - Attempts to re-register to RedHat Satellite (this workflow was deprecated in v6.9)
+        - Attempts to re-register to RedHat Satellite [![ ](https://img.shields.io/badge/ALERT-Deprecated%20in%20Satellite%20v6.9-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/release_notes/index#deprecated_functionality)
           - If successful:
             - Checking splunk UID/GID
             - Installing Splunk Forwarder
