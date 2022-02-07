@@ -23,6 +23,8 @@ A simple repo to hold scripts that I have written over the years for a variety o
   - Logs the actions it has taken per file, in a `while loop`.
 
 ## Fix Splunk Forwarder
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+
 [FixSplunkForwarder.bash](FixSplunkForwarder.bash) is a shell script to "fix" hostname and network configurations so Splunkfowarder stops complaining.
 
 - In this script it will:
@@ -76,4 +78,6 @@ A simple repo to hold scripts that I have written over the years for a variety o
 
 ## LAMP
 [lamp.sh](lamp.sh)
+
 This is my first shell script of any real consequence.  It was written around 2012/2013 and doesn't contain any logic. Its fun to go back and see where we've been!
+
