@@ -112,9 +112,9 @@ This is my first shell script of any real consequence.  It was written around 20
 
 
 ## Publish And Promote (RedHat Satellite)
-[![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Admin%20%28root%29%20Access-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/hammer_cli_guide/index)
-[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Hammer%20Access-orange)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/hammer_cheat_sheet/index)
+[![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)  
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Admin%20%28root%29%20Access-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/hammer_cli_guide/index)  
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Hammer%20Access-orange)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/hammer_cheat_sheet/index)  
 
 [PublishAndPromote_Satellite.bash](PublishAndPromote_Satellite.bash) is a script to automate the publishing/promotion of content views each month.
 
@@ -127,4 +127,27 @@ This is my first shell script of any real consequence.  It was written around 20
     - Set a hidden file so we know we have promoted this (`touch /tmp/.dev-qa-promoted."$(date +'%s')"`)
   - Promoting Satellite content-view to CORP/PROD (_content view specifically for Satellite Capsule servers_) (`hammer content-view version promote`)
 
-##
+## RedHat Satellite Registration
+[![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)  
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
+[![ ](https://img.shields.io/badge/ALERT-Deprecated%20in%20Satellite%20v6.9-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.9/html-single/release_notes/index#deprecated_functionality)  
+
+[rhel_registration.bash](rhel_registration.bash) is a wrapper Shell Script to prepare an environment for RedHat Satellite registration.
+
+- In this script it will:
+  - If system is `RHEL 6` then:
+    - Determine the proper capsule server to use
+    - Get registered to Satellite, applies only to RHEL 6 (`function GetRegistered` is only applicable on RHEL 6 systems)
+    - Install the InSights Client and Katello Tools
+  - If system is `RHEL 7|8` then:
+    - Ensure we have python installed
+    - Create PIP Working Directory
+    - Create PIP configuration file
+    - Update PIP
+    - Install PIP Modules
+    - Determine the proper capsule server to use
+    - Cleanup Old Installs
+    - Get the Satellite certificate for authorization
+    - Get the [system-bootstrap.py](https://github.com/thisguyshouldworkforus/python/blob/main/system_bootstrap.py) script and run it.
+    - Install the InSights Client and Katello Tools
+
