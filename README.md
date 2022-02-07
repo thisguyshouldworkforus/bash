@@ -11,6 +11,7 @@ A simple repo to hold scripts that I have written over the years for a variety o
 
 ## Delete Old Log Files
 [![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+
 [delete_old_logs.bash](delete_old_logs.bash) is a small script to nuke log files older than 90 days.
 
 - In this script it will:
