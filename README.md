@@ -111,3 +111,20 @@ This is my first shell script of any real consequence.  It was written around 20
           - Remove our known good checksum, so it can be repopulated.
 
 
+## Publish And Promote (RedHat Satellite)
+[![ ](https://img.shields.io/badge/DEPENDENCY-RedHat%20Satellite-green)](https://www.redhat.com/en/technologies/management/satellite)
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Admin%20%28root%29%20Access-red)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/hammer_cli_guide/index)
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Hammer%20Access-orange)](https://access.redhat.com/documentation/en-us/red_hat_satellite/6.10/html/hammer_cheat_sheet/index)
+
+[PublishAndPromote_Satellite.bash](PublishAndPromote_Satellite.bash) is a script to automate the publishing/promotion of content views each month.
+
+- In this script it will:
+  - When we publish the content views, we set a file `touch /tmp/.dev-qa-promoted`, we look for that file, if we find it, that tells us that we have already published, we get the time of the last publish and issue a **WARNING**, allowing the user to quit here, if they want.
+  - Gather the next month (`NEXT_MONTH=$(date +"%B" -d "next month")`)
+  - Publish non-composite content-views (`hammer content-view list --organization-id="1" --noncomposite="1" --fields="Content View ID,Name"`)
+  - Publish composite content-views (`hammer content-view list --organization-id="1" --composite="1" --fields="Content View ID,Name"`)
+  - Promoting composite content-views to DEV/QA (`hammer content-view version promote`)
+    - Set a hidden file so we know we have promoted this (`touch /tmp/.dev-qa-promoted."$(date +'%s')"`)
+  - Promoting Satellite content-view to CORP/PROD (_content view specifically for Satellite Capsule servers_) (`hammer content-view version promote`)
+
+##
