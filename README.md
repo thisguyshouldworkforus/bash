@@ -77,7 +77,37 @@ A simple repo to hold scripts that I have written over the years for a variety o
     - Validate Splunk and System hostnames match!
 
 ## LAMP
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+
 [lamp.sh](lamp.sh)
 
 This is my first shell script of any real consequence.  It was written around 2012/2013 and doesn't contain any logic. Its fun to go back and see where we've been!
+
+## Monitor Sudoers
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20Access-orange)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)
+
+[MonitorSudoers.bash]([MonitorSudoers.bash) is a script to output an MD5Sum of the `/etc/sudoers` file and the contents of the `/etc/sudoers.d` directory and report on changes
+
+- In this script it will:
+  - Check to see if the checksum file **DOES NOT** exist (`/root/sudoers.md5`) (_inverted logic_)
+    - If `true` (_true, it does not exist_)
+      - Write a checksum to a file (`/root/sudoers.md5`)
+    - If `false` (_false, it does exist_)
+      - Write a checksum to a variable `CHECK`
+      - Compare existing checksum to `"$CHECK"`
+        - If they don't match
+          - send an alert to `/var/log/messages`
+          - Remove our known good checksum, so it can be repopulated.
+  - Create a `while read` loop to go through all the files in `/etc/sudoers.d/` (_`find /etc/sudoers.d -type f`_)
+  - Shorten the filename (`SHORT=$(echo "$FILE" | awk -F/ '{print $NF}' | tr '[:upper:]' '[:lower:]')`)
+  - Check to see if the checksum file **DOES NOT** exist (`/root/sudoers_"$SHORT".md5`) (_inverted logic_)
+    - If `true` (_true, it does not exist_)
+      - Write a checksum to a file (`/root/sudoers_"$SHORT".md5`)
+    - If `false` (_false, it does exist_)
+      - Write a checksum to a variable `CHECK`
+      - Compare existing checksum to `"$CHECK"`
+        - If they don't match
+          - send an alert to `/var/log/messages`
+          - Remove our known good checksum, so it can be repopulated.
+
 
