@@ -1,7 +1,7 @@
 # Hi, I'm Alexander!👋
 
 ## Email
-alexander@ThisGuyShouldWorkFor.Us
+[alexander@ThisGuyShouldWorkFor.Us](mailto:alexander@ThisGuyShouldWorkFor.Us?subject="A contact from GitHub")
 
 alexander@sba.tc
 
