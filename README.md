@@ -225,5 +225,7 @@ This is my first shell script of any real consequence.  It was written around 20
   - Start a `while read` loop with the results from `find /etc/sudoers.d/ /etc/sudoers -type f -print` as `FILE`
     - Start a nested `while read` loop with the results from `grep -Ei '.*ALL=\(ALL\).*NOPASSWD: ALL' "$FILE" | grep -Eiv '#|wheel' | sed 's/%//' | awk '{print $1}'` as `USERGROUP`
     - Using the ADINT tool, list user group privlages, log that information: `$(sudo which logger) "SUDO2ROOT --- DATE=\"$DATE\" HOST=\"$HOST\" FILE=\"$FILE\" GROUP=\"$USERGROUP\" MEMBERS=\"$MEMBERS\""`
+- The idea behind the elaborate logging is to use this information and create a `splunk` dashboard that be used to track access visually, and in real-time.
 
-## 
+[//]: # (End Of Document)
+
