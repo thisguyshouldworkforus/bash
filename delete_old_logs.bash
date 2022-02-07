@@ -1,25 +1,8 @@
 #!/usr/bin/env bash
 
 # --------------------------------------------------------------
-# Copyright (C) 2021: Snyder Business And Technology Consulting, LLC. - All Rights Reserved
-#
 # Date:
 # May 14, 2021
-#
-# Author:
-# Alexander Snyder
-#
-# Email:
-# alexander@sba.tc
-#
-# Repository:
-# https://github.com/thisguyshouldworkforus/bash.git
-#
-# Dependency:
-# Access to root
-#
-# Description:
-# A small script to nuke log files older than 90 days.
 # --------------------------------------------------------------
 
 # Root/Sudo privelage is required

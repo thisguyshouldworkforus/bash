@@ -1,25 +1,8 @@
 #!/usr/bin/env bash
 
 # --------------------------------------------------------------
-# Copyright (C) 2021: Snyder Business And Technology Consulting, LLC. - All Rights Reserved
-#
 # Date:
 # April 28, 2021
-#
-# Author:
-# Alexander Snyder
-#
-# Email:
-# alexander@sba.tc
-#
-# Repository:
-# https://github.com/thisguyshouldworkforus/bash.git
-#
-# Dependency:
-# Access to root
-#
-# Description:
-# Shell script to "fix" hostname and network configurations so Splunkfowarder stops complaining.
 # --------------------------------------------------------------
 
 function SuccessMsg(){
