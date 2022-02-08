@@ -227,5 +227,32 @@ This is my first shell script of any real consequence.  It was written around 20
     - Using the ADINT tool, list user group privlages, log that information: `$(sudo which logger) "SUDO2ROOT --- DATE=\"$DATE\" HOST=\"$HOST\" FILE=\"$FILE\" GROUP=\"$USERGROUP\" MEMBERS=\"$MEMBERS\""`
 - The idea behind the elaborate logging is to use this information and create a `splunk` dashboard that be used to track access visually, and in real-time.
 
+## ClamAV Scan
+[![ ](https://img.shields.io/badge/DEPENDENCY-Requires%20Root%20%28sudo%29%20Access-red)](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/root-account.html)  
+
+[clamav_scan.bash](clamav_scan.bash) is a script to run ClamAV Scan
+
+- In this script it will:
+  - Define variables for later use:
+    - `CLAMSCAN="/usr/bin/ionice -c '3' nice -n '19' /usr/bin/clamscan -ri"`
+    - `FRESHCLAM="/usr/bin/ionice -c '3' nice -n '19' /usr/bin/freshclam -v"`
+    - `LOGFILE="/var/log/clamav/clam.log"`
+    - `NOW=$(date --date="$(date +"%Y-%m-%d")" +"%s" 2>/dev/null)`
+    - `INTERVAL="86400" #Unix-Timestamp//86400//1-day`
+  - Declare an indexed array `CLAMARG`
+  - Check to see if the `"$LOGFILE"` **DOES NOT** exist (_inverted logic_)
+    - If `true` (_true, it does not exist_)
+      - Initiate Log File (`Scan Started\n$(date)\n============\n`)
+    - If `false` (_false, it does exist_)
+      - Determine when the log was last written to, and if it was greater than the defined `"$INTERVAL"`, it appends the log file.
+  - Consumes the script arguments into the array `CLAMARG`
+    - If arguments are greater than or equal to 1:
+      - Runs `"$FRESHCLAM"` (`/usr/bin/ionice -c '3' nice -n '19' /usr/bin/freshclam -v`)
+      - Runs `"$CLAMSCAN" "${CLAMARG[@]}" >> "${LOGFILE}"`
+    - If no arguments were passed to the script:
+      - Runs `"$FRESHCLAM"` (`/usr/bin/ionice -c '3' nice -n '19' /usr/bin/freshclam -v`)
+      - Runs `"$CLAMSCAN /usr/bin /bin" >> "${LOGFILE}"`
+    - Close the log (`\nScan Ended\n$(date)\n============\n\n`)
+
 [//]: # (End Of Document)
 

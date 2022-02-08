@@ -3,9 +3,6 @@
 # --------------------------------------------------------------
 # Date:
 # November 10, 2020
-#
-# Description:
-# Script to run ClamAV Scan
 # --------------------------------------------------------------
 
 # Script Variables
@@ -21,7 +18,7 @@ declare -a CLAMARG
 # Script Logic
 if [[ ! -f "${LOGFILE}" ]]
     then
-        echo -en "Scan Started\n$(date)\n============" > "${LOGFILE}"
+        echo -en "Scan Started\n$(date)\n============\n" > "${LOGFILE}"
         if [[ "$#" -gt '0' ]]
             then
                 for ARG in "$@"
@@ -40,7 +37,7 @@ if [[ ! -f "${LOGFILE}" ]]
         DELTA=$((NOW-LOGDATE))
         if [[ "$DELTA" -ge "$INTERVAL" ]]
             then
-                echo -en "Scan Started\n$(date)\n============" >> "${LOGFILE}"
+                echo -en "Scan Started\n$(date)\n============\n" >> "${LOGFILE}"
                 if [[ "$#" -gt '0' ]]
                     then
                         for ARG in "$@"
