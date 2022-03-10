@@ -86,18 +86,17 @@ WHITE_BACKGROUND="\e[107m"
 if [[ "$THISBOX" =~ 'awesomesauce' ]]
     then
         export GIT_SSH_COMMAND="ssh -o 'CheckHostIP=no' -o 'StrictHostKeyChecking=no' -o 'ConnectTimeout=5' -i ~/.ssh/sbatc.priv"
-	    export PS1="\n[ ${WHITE_BACKGROUND}${RED_TEXT}WINDOWS SUBSHELL LINUX (WSL) ${BLUE_TEXT}($(grep 'PRETTY_NAME' /etc/os-release | awk -F '=' '{print $2}' | tr -d '"'))${NORMAL_TEXT}${NORMAL_BACKGROUND} ]\n[ USER: \u ]\n[ HOST: $THISBOX ($(GetIP)) ]\n[ You're in (( \w )) ]\n$(DiskAlert)\n\n--> "
+	    PS1="\n[ ${WHITE_BACKGROUND}${RED_TEXT}WINDOWS SUBSHELL LINUX (WSL) ${BLUE_TEXT}($(grep 'PRETTY_NAME' /etc/os-release | awk -F '=' '{print $2}' | tr -d '"'))${NORMAL_TEXT}${NORMAL_BACKGROUND} ]\n[ USER: \u ]\n[ HOST: $THISBOX ($(GetIP)) ]\n[ You're in (( \w )) ]\n$(DiskAlert)\n\n--> "
 fi
 
 # User specific aliases
-
 alias ll="ls -alh"
+alias diff="diff --side-by-side --suppress-common-lines --ignore-all-space --ignore-case --ignore-tab-expansion --ignore-blank-lines"
+alias rsync="rsync --archive --compress --verbose --recursive --checksum --human-readable --progress --ipv4"
 
 
-if which python3 >/dev/null 2>&1
+if [[ -d "/usr/local/cuda-11.6/bin/" ]]
     then
-        PYTHON3=$(which python3)
-        alias python="$PYTHON3"
-        alias pip="$PYTHON3 -m pip"
+        export PATH=/usr/local/cuda-11.6/bin:"${PATH}"
+        export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 fi
-##
